@@ -1,6 +1,142 @@
-## Setup Project
+# Car Management API
 
-## Testing Guide
+REST API untuk manajemen data mobil menggunakan Node.js, Express.js, Prisma ORM, dan PostgreSQL.
+
+## 🚀 Tech Stack
+
+- Backend: Node.js, Express.js
+- Database: PostgreSQL (Neon)
+- ORM: Prisma
+- Testing: Jest, Supertest
+- Linting: ESLint
+- CI/CD: GitHub Actions
+
+## 📋 Prerequisites
+
+Sebelum memulai, pastikan Anda telah menginstall:
+
+- Node.js (v18 atau lebih tinggi)
+- Git
+- Database PostgreSQL (disarankan menggunakan Neon)
+
+## 🛠️ Installation & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/irpanzy/tubes-mkepl.git
+cd tubes-mkepl
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Setup
+
+#### Buat file `.env` dari template:
+
+```bash
+cp .env.example .env
+```
+
+#### Edit file `.env` dan isi dengan konfigurasi Anda:
+
+```env
+PORT=3000
+DATABASE_URL="postgresql://username:password@hostname:5432/database_name?sslmode=require"
+```
+
+### 4. Database Setup
+
+#### Generate Prisma Client:
+
+```bash
+npm run db:generate
+```
+
+#### Push schema ke database:
+
+```bash
+npm run db:push
+```
+
+#### Seed database dengan data sample (opsional):
+
+```bash
+npm run db:seed
+```
+
+### 5. Run Development Server
+
+```bash
+npm run dev
+```
+
+Server akan berjalan di `http://localhost:3000`
+
+## 🌐 API Endpoints
+
+Base URL: `http://localhost:3000/api/v1`
+
+### Cars Endpoints
+
+| Method | Endpoint    | Description    | Body                      |
+| ------ | ----------- | -------------- | ------------------------- |
+| GET    | `/cars`     | Get all cars   | -                         |
+| GET    | `/cars/:id` | Get car by id  | -                         |
+| POST   | `/cars`     | Create new car | `{brand, model, year}`    |
+| PUT    | `/cars/:id` | Update car     | `{brand?, model?, year?}` |
+| DELETE | `/cars/:id` | Delete car     | -                         |
+
+### Response Format
+
+#### Success Response:
+
+```json
+{
+  "success": true,
+  "data": {...},
+  "message": "Operation successful"
+}
+```
+
+#### Error Response:
+
+```json
+{
+  "success": false,
+  "message": "Error description"
+}
+```
+
+### Example Requests
+
+#### Create Car:
+
+```bash
+curl -X POST http://localhost:3000/api/v1/cars \
+  -H "Content-Type: application/json" \
+  -d '{"brand": "Toyota", "model": "Corolla", "year": 2023}'
+```
+
+#### Get All Cars:
+
+```bash
+curl http://localhost:3000/api/v1/cars
+```
+
+#### Update Car:
+
+```bash
+curl -X PUT http://localhost:3000/api/v1/cars/1 \
+  -H "Content-Type: application/json" \
+  -d '{"brand": "Honda", "model": "Civic"}'
+```
+
+## 🧪 Testing
 
 ### Test Structure
 
@@ -267,3 +403,47 @@ npm test
 # Check coverage threshold
 npm run test:coverage -- --coverageThreshold='{"global":{"branches":80,"functions":80,"lines":80,"statements":80}}'
 ```
+
+## 📝 API Documentation
+
+### Data Models
+
+#### Car Model:
+
+```js
+{
+  id: number,      // Auto-increment primary key
+  brand: string,   // Required, car brand
+  model: string,   // Required, car model
+  year: number     // Required, manufacturing year
+}
+```
+
+### Validation Rules
+
+- `brand`: Required, non-empty string
+- `model`: Required, non-empty string
+- `year`: Required, valid integer
+
+### Error Codes
+
+- `400`: Bad Request (validation error)
+- `404`: Not Found (resource not found)
+- `500`: Internal Server Error (server/database error)
+
+## 🤝 Contributing
+
+- Fork the repository
+- Create feature branch (`git checkout -b feature/amazing-feature`)
+- Commit changes (`git commit -m 'Add amazing feature'`)
+- Push to branch (`git push origin feature/amazing-feature`)
+- Open Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Express.js team for the excellent framework
+- Prisma team for the amazing ORM

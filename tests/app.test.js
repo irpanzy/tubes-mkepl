@@ -1,7 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
 
-// Mock the entire car service
 jest.mock('../services/car.service', () => ({
   getAllCars: jest.fn(),
   getCarById: jest.fn(),

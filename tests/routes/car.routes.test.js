@@ -2,7 +2,6 @@ const request = require('supertest');
 const express = require('express');
 const carRoutes = require('../../routes/car.routes');
 
-// Mock the controller
 jest.mock('../../controllers/car.controllers', () => ({
   getCars: jest.fn((req, res) => res.json({ message: 'getCars called' })),
   getCar: jest.fn((req, res) =>

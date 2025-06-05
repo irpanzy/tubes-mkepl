@@ -48,7 +48,7 @@ async function updateCar(id, updatedData) {
     });
   } catch (error) {
     if (error.code === 'P2025') {
-      return null; // Record not found
+      return null; 
     }
     throw new Error('Failed to update car');
   }
@@ -62,7 +62,7 @@ async function deleteCar(id) {
     return true;
   } catch (error) {
     if (error.code === 'P2025') {
-      return false; // Record not found
+      return false; 
     }
     throw new Error('Failed to delete car');
   }

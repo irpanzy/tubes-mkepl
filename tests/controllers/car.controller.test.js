@@ -2,7 +2,6 @@ const request = require('supertest');
 const app = require('../../app');
 const carService = require('../../services/car.service');
 
-// Mock the car service
 jest.mock('../../services/car.service');
 
 describe('Car Controller', () => {

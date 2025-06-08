@@ -1,7 +1,10 @@
 {
-  "name": "tubes-mkepl",
+  "name": "@irpanzy/tubes-mkepl-serabi-lempit",
   "version": "1.0.0",
   "main": "server.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",

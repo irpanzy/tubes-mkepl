@@ -24,8 +24,8 @@ Sebelum memulai, pastikan Anda telah menginstall:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/irpanzy/tubes-mkepl.git
-cd tubes-mkepl
+git clone https://github.com/irpanzy/tubes-mkepl-serabi-lempit.git
+cd tubes-mkepl-serabi-lempit
 ```
 
 ### 2. Install Dependencies

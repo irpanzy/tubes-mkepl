@@ -83,13 +83,13 @@ Base URL: `http://localhost:3000/api/v1`
 
 ### Cars Endpoints
 
-| Method | Endpoint    | Description    | Body                      |
-| ------ | ----------- | -------------- | ------------------------- |
-| GET    | `/cars`     | Get all cars   | -                         |
-| GET    | `/cars/:id` | Get car by id  | -                         |
-| POST   | `/cars`     | Create new car | `{brand, model, year}`    |
-| PUT    | `/cars/:id` | Update car     | `{brand?, model?, year?}` |
-| DELETE | `/cars/:id` | Delete car     | -                         |
+| Method | Endpoint          | Description    | Body                      |
+| ------ | ----------------- | -------------- | ------------------------- |
+| GET    | `api/v1/cars`     | Get all cars   | -                         |
+| GET    | `api/v1/cars/:id` | Get car by id  | -                         |
+| POST   | `api/v1/cars`     | Create new car | `{brand, model, year}`    |
+| PUT    | `api/v1/cars/:id` | Update car     | `{brand?, model?, year?}` |
+| DELETE | `api/v1/cars/:id` | Delete car     | -                         |
 
 ### Response Format
 
